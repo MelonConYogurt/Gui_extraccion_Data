@@ -697,8 +697,8 @@ class App(customtkinter.CTk):
                 ax1 = fig.add_subplot(1, 1, 1)
                 ax1.plot(range(1, len(self.tiempos_respuesta) + 1), self.tiempos_respuesta, marker='o')
                 #ax1.set_xlabel("Páginas")
-                ax1.set_ylabel("Tiempo de Respuesta (segundos)")
-                ax1.set_title("Tiempo de Respuesta de las Solicitudes de Red")
+                ax1.set_ylabel("Response Time (seconds)")
+                ax1.set_title("Response Time of Network Requests")
                 
                 # Crear un lienzo para la figura
                 canvas = FigureCanvasTkAgg(fig, master=self.frame_grafico_N1)
@@ -710,8 +710,8 @@ class App(customtkinter.CTk):
                 ax2 = fig_2.add_subplot(1, 1, 1)
                 ax2.plot(range(1, len(self.tamanos_respuesta) + 1), self.tamanos_respuesta, marker='o')
                 #ax2.set_xlabel("Páginas")
-                ax2.set_ylabel("Tamaño de Respuesta (KB)")
-                ax2.set_title("Tamaño de Respuesta de las Solicitudes de Red")
+                ax2.set_ylabel("Response Size (KB)")
+                ax2.set_title("Response Size of Network Requests")
 
                 # Crear un lienzo para la figura
                 canvas_2 = FigureCanvasTkAgg(fig_2, master=self.frame_grafico_N2)
@@ -898,19 +898,19 @@ class App(customtkinter.CTk):
                 self.frame_resumen_datos_N4_derecha.grid(row=23, column=1,padx=5, pady=5, sticky="nsew")
             
                 self.label_resumen_tiempo = customtkinter.CTkLabel(self.frame_resumen_datos_N1, 
-                                                    text="Duraccion: ")
+                                                    text="Duration: ")
                 self.label_resumen_tiempo.pack(side="left", padx=10, pady=10)
                 
                 self.label_resumen_numero_filas = customtkinter.CTkLabel(self.frame_resumen_datos_N2, 
-                                                        text="Total filas: ")
+                                                        text="Total rows: ")
                 self.label_resumen_numero_filas.pack(side="left", padx=10, pady=10)
                 
                 self.label_resumen_numero_celdas = customtkinter.CTkLabel(self.frame_resumen_datos_N3, 
-                                                            text="Total de datos: ")
+                                                            text="Amount of data: ")
                 self.label_resumen_numero_celdas.pack(side="left", padx=10, pady=10)
                 
                 self.label_resumen_fecha = customtkinter.CTkLabel(self.frame_resumen_datos_N4, 
-                                                            text="Fecha de creacion: ")
+                                                            text="Time: ")
                 self.label_resumen_fecha.pack(side="left", padx=10, pady=10)
                 
                 self.label_resumen_fecha_valor = customtkinter.CTkLabel(self.frame_resumen_datos_N4_derecha, 
@@ -943,8 +943,8 @@ class App(customtkinter.CTk):
                 datos = session.query(Data_Extraida).all()
 
                 # Crear un Treeview para mostrar los datos en forma de tabla
-                treeview = ttk.Treeview(self.frame_resumen_tabla, columns=("Id", "Texto_N1", "Texto_N2", "Src_imagenes", "href_productos"), show="headings")
-
+                treeview = ttk.Treeview(self.frame_resumen_tabla, height=20 ,columns=("Id", "Texto_N1", "Texto_N2", "Src_imagenes", "href_productos"), show="headings")
+                
                 # Configurar los encabezados de las columnas
                 treeview.heading("Id", text="ID")
                 treeview.heading("Texto_N1", text="Texto N1")
