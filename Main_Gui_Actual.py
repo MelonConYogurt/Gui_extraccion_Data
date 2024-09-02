@@ -36,29 +36,32 @@ class App(customtkinter.CTk):
             pantalla_principal = monitors[0]
             self.geometry(f"{pantalla_principal.width}x{pantalla_principal.height}")
             
-        
-        #Configuramos la ventana principal self
+        # Configuramos la ventana principal self
         self.grid_rowconfigure(0, weight=1) 
         self.grid_columnconfigure(0, weight=1)
-        self.title("Okimuna scrap")
-            
-        #Frame base para todos los demas frames    
+        self.title("Scrap")
+        
+        # Frame base para todos los demás frames    
         self.frame_base = customtkinter.CTkScrollableFrame(master=self, fg_color="#242424")
         self.frame_base.grid(row=0, column=0, padx=1, pady=1, sticky="nsew")
 
-        #Creacion de los frames principales
+        # Configuración de las columnas de frame_base para que ocupen todo el ancho
+        self.frame_base.grid_columnconfigure(0, weight=1)
+        self.frame_base.grid_columnconfigure(1, weight=1)
+
+        # Creación de los frames principales
         self.frame_titulo_arriba = customtkinter.CTkFrame(self.frame_base, height=100)
-        self.frame_titulo_arriba.grid(row=0, column=0, columnspan=2,  padx=5, pady=5, sticky="nsew")
+        self.frame_titulo_arriba.grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky="nsew")
 
         self.frame_medio_izquierda = customtkinter.CTkFrame(self.frame_base)
         self.frame_medio_izquierda.grid(row=1, column=0, padx=5, pady=20, sticky="nsew")
 
         self.frame_medio_derecha = customtkinter.CTkFrame(self.frame_base)
         self.frame_medio_derecha.grid(row=1, column=1, padx=5, pady=20, sticky="nsew")
-        
+
         self.frame_intermedio_derecha = customtkinter.CTkFrame(self.frame_base)
         self.frame_intermedio_derecha.grid(row=2, column=0, columnspan=2, padx=5, pady=10, sticky="nsew")
-        
+
         self.frame_medio_bajo_izquierda = customtkinter.CTkFrame(self.frame_base)
         self.frame_medio_bajo_izquierda.grid(row=3, column=0, padx=5, pady=5, sticky="nsew")
 
@@ -150,108 +153,109 @@ class App(customtkinter.CTk):
         self.frame_imagenes_derecha.grid(row=19, column=1, padx=5, pady=5, sticky="nsew") 
     
     
-        #Labels dentro de los frames principales      
-        self.Titulo_app = customtkinter.CTkLabel(self.frame_titulo_arriba, text="Extracción de data enfocada a clases CSS y elementos HTML",
-                                                  font=customtkinter.CTkFont(size=23, weight="bold"))
-        self.Titulo_app.pack(padx=10, pady=10)
-        
-        self.Titulo_Extracion_app = customtkinter.CTkLabel(self.frame_intermedio_derecha, text="Por favor, completa los siguientes datos para iniciar el proceso de extracción",
-                                                  font=customtkinter.CTkFont(size=20, weight="bold"))
-        self.Titulo_Extracion_app.pack( padx=10, pady=10)
+       # Labels dentro de los frames principales      
+        self.app_title = customtkinter.CTkLabel(self.frame_titulo_arriba, text="Data Extraction Focused on CSS Classes and HTML Elements",
+                                                font=customtkinter.CTkFont(size=23, weight="bold"))
+        self.app_title.pack(padx=10, pady=10)
 
-        self.Descripcion_app_titulo = customtkinter.CTkLabel(self.frame_medio_izquierda,
-                                                      text="Descripcion",
-                                                      font=customtkinter.CTkFont(size=18, weight="bold"))
-        self.Descripcion_app_titulo.pack(side="top",padx=(5,5), pady=(5,5))    
-    
-        self.Descripcion_app = customtkinter.CTkLabel(self.frame_medio_izquierda,
-                                                      text="Esta aplicación ha sido desarrollada con el propósito de extraer datos\nde diversas páginas web que hacen uso de clases de CSS. Esto nos\n permite obtener la información deseada a través de los elementos\nHTML correspondientes.",
-                                                      font=customtkinter.CTkFont(size=13, weight="normal"))
-        self.Descripcion_app.pack(padx=(10,15), pady=(10,10))
-    
-        self.Advertencia_app_titulo = customtkinter.CTkLabel(self.frame_medio_derecha,
-                                                      text="Advertencia",
-                                                      font=customtkinter.CTkFont(size=18, weight="bold"))
-        self.Advertencia_app_titulo.pack(side="top", padx=(5,5), pady=(5,5))
-    
-        self.Advertencia_app = customtkinter.CTkLabel(self.frame_medio_derecha,
-                                                      text="La extracción de datos y cualquier procesamiento resultante queda bajo\ntu propia responsabilidad, ya que no contamos con los permisos \nnecesarios de las páginas web en cuestión.",
-                                                      font=customtkinter.CTkFont(size=13, weight="normal"))
-        self.Advertencia_app.pack(padx=(10,15), pady=(10,10))
-        
-        self.label_informacion = customtkinter.CTkLabel(self.frame_medio_bajo_titulo, 
-                                                    text="Una vez que hayas verificado tu página, completa los campos con tus elementos HTML")
-        self.label_informacion.pack(side="left", padx=10, pady=10)
-        
-        self.label_url_app = customtkinter.CTkLabel(self.frame_medio_bajo_izquierda, 
-                                                    text="Por favor, proporciona una dirección web para que podamos comprobar su funcionamiento:")
-        self.label_url_app.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app = customtkinter.CTkLabel(self.frame_bajo_izquierda, 
-                                                    text="Por favor, introduce el primer elemento HTML que deseas extraer:")
-        self.label_elementos_html_app.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app_N2 = customtkinter.CTkLabel(self.frame_bajo_izquierda_N2, 
-                                                    text="Por favor, introduce el segundo elemento HTML que deseas extraer:")
-        self.label_elementos_html_app_N2.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app_href = customtkinter.CTkLabel(self.frame_bajo_derecha_NP, 
-                                                    text="Por favor, introduce el segundo elemento HTML que deseas extraer:")
-        self.label_elementos_html_app_href.pack(side="left", padx=10, pady=10)
-        
-        self.label_informacion_numero2 = customtkinter.CTkLabel(self.frame_medio_bajo_titulo_numero2, 
-                                                    text="Para la extracción de imágenes, proporciona el elemento HTML de una imagen (Solo se obtendrá el 'src')")
-        self.label_informacion_numero2.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app_N3 = customtkinter.CTkLabel(self.frame_bajo_izquierda_N3, 
-                                                    text="Por favor, escribe el elemento HTML de la imagen que deseas extraer:")
-        self.label_elementos_html_app_N3.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app_N4 = customtkinter.CTkLabel(self.frame_bajo_izquierda_N4, 
-                                                    text="Por favor, escribe el elemento HTML del boton 'siguiente' para la extracion:")
-        self.label_elementos_html_app_N4.pack(side="left", padx=10, pady=10)
-    
-        self.label_informacion_numero2 = customtkinter.CTkLabel(self.frame_medio_bajo_titulo_numero3, 
-                                                    text="Para realizar la extracción completa, necesitas proporcionar el elemento HTML del botón siguiente")
-        self.label_informacion_numero2.pack(side="left", padx=10, pady=10)
-        
-        self.label_elementos_html_app_N5 = customtkinter.CTkLabel(self.frame_bajo_izquierda_N5, 
-                                                    text="Por favor, especifica desde qué página hasta qué página deseas realizar la extracción:")
-        self.label_elementos_html_app_N5.pack(side="left", padx=10, pady=10)
-        
-        self.label_funciones = customtkinter.CTkLabel(self.frame_semi_bajo, 
-                                                    text="Ahora, puedes proceder con la extracción y dispones de diversas funciones a tu disposición:")
-        self.label_funciones.pack(side="left",padx=10, pady=10)
-        
-        self.label_tomar_datos = customtkinter.CTkLabel(self.frame_bajo, 
-                                                    text="Si has completado todos los campos y verificado la información, puedes proceder a la extracción")
-        self.label_tomar_datos.pack(side="left", padx=10, pady=10)
-        
-        self.label_Exportar_datos = customtkinter.CTkLabel(self.frame_bajo_N2, 
-                                                    text="Tienes la opción de exportar el registro de la última extracción como un archivo de texto (.txt)")
-        self.label_Exportar_datos.pack(side="left", padx=10, pady=10)
-        
-        self.label_exportar_datos_db = customtkinter.CTkLabel(self.frame_funciones_bajo, 
-                                                    text="Si ya has realizado la extracción, tienes la opción de exportar una copia de la base de datos")
-        self.label_exportar_datos_db.pack(side="left", padx=10, pady=10)
-        
-        self.label_limpiar_datos = customtkinter.CTkLabel(self.frame_funciones_bajo_N2, 
-                                                    text="Si deseas realizar una nueva extracción, te recomendamos limpiar los datos previamente:")
-        self.label_limpiar_datos.pack(side="left", padx=10, pady=10)
-        
-        self.label_resumen_extracion = customtkinter.CTkLabel(self.frame_resumen, 
-                                                    text="Si lo deseas, puedes ver un resumen de toda el proceso, tanto data como graficos:")
-        self.label_resumen_extracion.pack(side="left", padx=10, pady=10)
-        
-        self.label_resumen_extracion = customtkinter.CTkLabel(self.frame_imagenes, 
-                                                    text="Si lo deseas puedes descargar las imagnes de tu ultima extraccion: ")
-        self.label_resumen_extracion.pack(side="left", padx=10, pady=10)
+        self.extraction_title = customtkinter.CTkLabel(self.frame_intermedio_derecha, text="Please complete the following details to start the extraction process",
+                                                        font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.extraction_title.pack(padx=10, pady=10)
+
+        self.description_title = customtkinter.CTkLabel(self.frame_medio_izquierda,
+                                                        text="Description",
+                                                        font=customtkinter.CTkFont(size=18, weight="bold"))
+        self.description_title.pack(side="top", padx=(5, 5), pady=(5, 5))
+
+        self.description = customtkinter.CTkLabel(self.frame_medio_izquierda,
+                                                text="This application has been developed to extract data from various websites that use CSS classes.\nThis allows us to obtain the desired information through the corresponding HTML elements.",
+                                                font=customtkinter.CTkFont(size=13, weight="normal"))
+        self.description.pack(padx=(10, 15), pady=(10, 10))
+
+        self.warning_title = customtkinter.CTkLabel(self.frame_medio_derecha,
+                                                    text="Warning",
+                                                    font=customtkinter.CTkFont(size=18, weight="bold"))
+        self.warning_title.pack(side="top", padx=(5, 5), pady=(5, 5))
+
+        self.warning = customtkinter.CTkLabel(self.frame_medio_derecha,
+                                            text="The extraction of data and any resulting processing is your own responsibility,\nas we do not have the necessary permissions from the respective websites.",
+                                            font=customtkinter.CTkFont(size=13, weight="normal"))
+        self.warning.pack(padx=(10, 15), pady=(10, 10))
+
+        self.info_label = customtkinter.CTkLabel(self.frame_medio_bajo_titulo,
+                                                text="Once you have verified your page, complete the fields with your HTML elements")
+        self.info_label.pack(side="left", padx=10, pady=10)
+
+        self.url_label = customtkinter.CTkLabel(self.frame_medio_bajo_izquierda,
+                                                text="Please provide a web address so we can check its functionality:")
+        self.url_label.pack(side="left", padx=10, pady=10)
+
+        self.first_html_element_label = customtkinter.CTkLabel(self.frame_bajo_izquierda,
+                                                            text="Please enter the first HTML element you want to extract:")
+        self.first_html_element_label.pack(side="left", padx=10, pady=10)
+
+        self.second_html_element_label = customtkinter.CTkLabel(self.frame_bajo_izquierda_N2,
+                                                                text="Please enter the second HTML element you want to extract:")
+        self.second_html_element_label.pack(side="left", padx=10, pady=10)
+
+        self.href_element_label = customtkinter.CTkLabel(self.frame_bajo_derecha_NP,
+                                                        text="Please enter the href element you want to extract:")
+        self.href_element_label.pack(side="left", padx=10, pady=10)
+
+        self.image_extraction_info_label = customtkinter.CTkLabel(self.frame_medio_bajo_titulo_numero2,
+                                                                text="To extract images, provide the HTML element of an image (Only the 'src' will be retrieved)")
+        self.image_extraction_info_label.pack(side="left", padx=10, pady=10)
+
+        self.image_element_label = customtkinter.CTkLabel(self.frame_bajo_izquierda_N3,
+                                                        text="Please enter the HTML element of the image you want to extract:")
+        self.image_element_label.pack(side="left", padx=10, pady=10)
+
+        self.next_button_label = customtkinter.CTkLabel(self.frame_bajo_izquierda_N4,
+                                                        text="Please enter the HTML element of the 'next' button for extraction:")
+        self.next_button_label.pack(side="left", padx=10, pady=10)
+
+        self.full_extraction_info_label = customtkinter.CTkLabel(self.frame_medio_bajo_titulo_numero3,
+                                                                text="To perform the full extraction, you need to provide the HTML element of the next button")
+        self.full_extraction_info_label.pack(side="left", padx=10, pady=10)
+
+        self.page_range_label = customtkinter.CTkLabel(self.frame_bajo_izquierda_N5,
+                                                    text="Please specify from which page to which page you want to perform the extraction:")
+        self.page_range_label.pack(side="left", padx=10, pady=10)
+
+        self.functions_label = customtkinter.CTkLabel(self.frame_semi_bajo,
+                                                    text="Now, you can proceed with the extraction and have various functions at your disposal:")
+        self.functions_label.pack(side="left", padx=10, pady=10)
+
+        self.data_proceed_label = customtkinter.CTkLabel(self.frame_bajo,
+                                                        text="If you have completed all fields and verified the information, you can proceed with the extraction")
+        self.data_proceed_label.pack(side="left", padx=10, pady=10)
+
+        self.export_txt_label = customtkinter.CTkLabel(self.frame_bajo_N2,
+                                                    text="You have the option to export the log of the last extraction as a text file (.txt)")
+        self.export_txt_label.pack(side="left", padx=10, pady=10)
+
+        self.export_db_label = customtkinter.CTkLabel(self.frame_funciones_bajo,
+                                                    text="If you have already performed the extraction, you have the option to export a copy of the database")
+        self.export_db_label.pack(side="left", padx=10, pady=10)
+
+        self.clear_data_label = customtkinter.CTkLabel(self.frame_funciones_bajo_N2,
+                                                    text="If you want to perform a new extraction, we recommend clearing the data beforehand:")
+        self.clear_data_label.pack(side="left", padx=10, pady=10)
+
+        self.summary_label = customtkinter.CTkLabel(self.frame_resumen,
+                                                    text="If you want, you can view a summary of the entire process, including data and graphics:")
+        self.summary_label.pack(side="left", padx=10, pady=10)
+
+        self.download_images_label = customtkinter.CTkLabel(self.frame_imagenes,
+                                                            text="If you want, you can download the images from your last extraction:")
+        self.download_images_label.pack(side="left", padx=10, pady=10)
+
         
         
            
         #Entry y botones Y demas widgets dentro de los frames principales    
         self.confirmar_url_pagina = customtkinter.CTkEntry(self.frame_medio_bajo_derecha
-                                                           ,width=200, placeholder_text=" Pagina web ")
+                                                           ,width=900, placeholder_text=" Pagina web ")
         self.confirmar_url_pagina.grid(row=0, column=0, padx=10, pady=10)
         
         self.obtener_url_usuario = customtkinter.CTkButton(self.frame_medio_bajo_derecha, text ="Verificar", width=90,
@@ -263,7 +267,7 @@ class App(customtkinter.CTk):
         self.verificasion_switch_url.grid(row=0, column=2, padx=10, pady=10)
         
         self.elementos_pagina_html_N1 = customtkinter.CTkEntry(self.frame_bajo_derecha
-                                                           ,width=200, placeholder_text="Primer elemento <HTML>")
+                                                           ,width=900, placeholder_text="Primer elemento <HTML>")
         self.elementos_pagina_html_N1.grid(row=0, column=0, padx=10, pady=10)
         
         self.Verificar_N1 = customtkinter.CTkButton(self.frame_bajo_derecha, text ="Verificar", width=90,
@@ -275,7 +279,7 @@ class App(customtkinter.CTk):
         self.verificasion_switch_N1.grid(row=0, column=2, padx=10, pady=10)
         
         self.elementos_pagina_html_N2 = customtkinter.CTkEntry(self.frame_bajo_derecha_N2
-                                                           ,width=200, placeholder_text="Segundo elemento <HTML>")
+                                                           ,width=900, placeholder_text="Segundo elemento <HTML>")
         self.elementos_pagina_html_N2.grid(row=0, column=0, padx=10, pady=10)
         
         self.Verificar_N2 = customtkinter.CTkButton(self.frame_bajo_derecha_N2, text ="Verificar", width=90, 
@@ -287,7 +291,7 @@ class App(customtkinter.CTk):
         self.verificasion_switch_N2.grid(row=0, column=2, padx=10, pady=10)
             
         self.Url_pagina_producto = customtkinter.CTkEntry(self.frame_bajo_derecha_NP_derecha
-                                                           ,width=200, placeholder_text="Tercer elemento <HREF> productos")
+                                                           ,width=900, placeholder_text="Tercer elemento <HREF> productos")
         self.Url_pagina_producto.grid(row=0, column=0, padx=10, pady=10)
         
         self.Verificar_url_producto = customtkinter.CTkButton(self.frame_bajo_derecha_NP_derecha, text ="Verificar", width=90, 
@@ -299,7 +303,7 @@ class App(customtkinter.CTk):
         self.Verificar_url_producto_switch.grid(row=0, column=2, padx=10, pady=10)  
         
         self.elementos_pagina_html_N3 = customtkinter.CTkEntry(self.frame_bajo_derecha_N3
-                                                           ,width=200, placeholder_text="Elemento <HTML> para imagenes")
+                                                           ,width=900, placeholder_text="Elemento <HTML> para imagenes")
         self.elementos_pagina_html_N3.grid(row=0, column=0, padx=10, pady=10)
         
         self.Verificar_N3 = customtkinter.CTkButton(self.frame_bajo_derecha_N3, text ="Verificar", width=90,
@@ -311,7 +315,7 @@ class App(customtkinter.CTk):
         self.verificasion_switch_N3.grid(row=0, column=2, padx=10, pady=10)
           
         self.elementos_pagina_html_N4 = customtkinter.CTkEntry(self.frame_bajo_derecha_N4
-                                                           ,width=200, placeholder_text="Elemento <HTML> Boton 'Siguiente'")
+                                                           ,width=900, placeholder_text="Elemento <HTML> Boton 'Siguiente'")
         self.elementos_pagina_html_N4.grid(row=0, column=0, padx=10, pady=10)
         
         self.Verificar_N4 = customtkinter.CTkButton(self.frame_bajo_derecha_N4, text ="Verificar", width=90, 
@@ -336,42 +340,42 @@ class App(customtkinter.CTk):
                                                             command= lambda: self.Hilo_extraccion_de_data(), width=135)
         self.Boton_extraer_Data.pack(side="right", padx=(10,30), pady=10)
         
-        self.Barrra_de_carga = customtkinter.CTkProgressBar(self.frame_bajo_N1_derecha, orientation="horizontal",mode="indeterminate")
+        self.Barrra_de_carga = customtkinter.CTkProgressBar(self.frame_bajo_N1_derecha, width=1000, orientation="horizontal",mode="indeterminate")
         self.Barrra_de_carga.pack(side="left", padx=(30,10), pady=10)
           
         self.Boton_exportar_data = customtkinter.CTkButton(self.frame_bajo_N2_derecha, text ="Exportar registro", 
                                                            command= lambda: self.exportar_registro(), width=135)
         self.Boton_exportar_data.pack(side="right", padx=(10,30), pady=10)
     
-        self.Barrra_de_carga_exportacion = customtkinter.CTkProgressBar(self.frame_bajo_N2_derecha, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_exportacion = customtkinter.CTkProgressBar(self.frame_bajo_N2_derecha, width=1000,orientation="horizontal", mode="indeterminate")
         self.Barrra_de_carga_exportacion.pack(side="left", padx=(30,10), pady=10)
       
         self.Boton_exportar_dataBase = customtkinter.CTkButton(self.frame_funciones_bajo_derecha, text ="Exportar data base", 
                                                            command= lambda: self.exportar_data_base(), width=135)
         self.Boton_exportar_dataBase.pack(side="right", padx=(10,30), pady=10)
         
-        self.Barrra_de_carga_exportacion_data_base = customtkinter.CTkProgressBar(self.frame_funciones_bajo_derecha, orientation="horizontal",mode="indeterminate")
+        self.Barrra_de_carga_exportacion_data_base = customtkinter.CTkProgressBar(self.frame_funciones_bajo_derecha, width=1000,orientation="horizontal",mode="indeterminate")
         self.Barrra_de_carga_exportacion_data_base.pack(side="left", padx=(30,10), pady=10)
                
         self.Boton_limpiar_data = customtkinter.CTkButton(self.frame_funciones_bajo_N2_derecha, text ="Limpiar registros", 
                                                            command= lambda: self.limpiar_data_todo(), width=135)
         self.Boton_limpiar_data.pack(side="right", padx=(10,30), pady=10)
         
-        self.Barrra_de_carga_limpiar_data = customtkinter.CTkProgressBar(self.frame_funciones_bajo_N2_derecha, orientation="horizontal",mode="indeterminate")
+        self.Barrra_de_carga_limpiar_data = customtkinter.CTkProgressBar(self.frame_funciones_bajo_N2_derecha, width=1000,orientation="horizontal",mode="indeterminate")
         self.Barrra_de_carga_limpiar_data.pack(side="left", padx=(30,10), pady=10)
         
         self.Boton_descargar_resumen = customtkinter.CTkButton(self.frame_resumen_derecha, text ="Mostrar resumen", 
                                                             command= lambda: self.resumen_extracion(), width=135)
         self.Boton_descargar_resumen.pack(side="right", padx=(10,30), pady=10)
         
-        self.Barrra_de_carga_resumen = customtkinter.CTkProgressBar(self.frame_resumen_derecha, orientation="horizontal",mode="indeterminate")
+        self.Barrra_de_carga_resumen = customtkinter.CTkProgressBar(self.frame_resumen_derecha, width=1000,orientation="horizontal",mode="indeterminate")
         self.Barrra_de_carga_resumen.pack(side="left", padx=(30,10), pady=10)
                        
         self.Boton_descargar_imagenes = customtkinter.CTkButton(self.frame_imagenes_derecha, text ="Descargar imagenes", 
                                                             command= lambda: self.Hilo_descarga_de_imagenes(), width=135)
         self.Boton_descargar_imagenes.pack(side="right", padx=(10,30), pady=10)
         
-        self.Barrra_de_carga_funciones = customtkinter.CTkProgressBar(self.frame_imagenes_derecha, orientation="horizontal",mode="indeterminate")
+        self.Barrra_de_carga_funciones = customtkinter.CTkProgressBar(self.frame_imagenes_derecha, width=1000,orientation="horizontal",mode="indeterminate")
         self.Barrra_de_carga_funciones.pack(side="left", padx=(30,10), pady=10)
 
         
@@ -383,7 +387,7 @@ class App(customtkinter.CTk):
         self.tamanos_respuesta = []
         
         #Iniciamos un log para guardar toda la data que sera extraida
-        logging.basicConfig(filename='Selenium_app/data_extraida.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig(filename='data_extraida.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         
         # Guardar los datos en un archivo Excel
         libro_excel = Workbook()
@@ -568,7 +572,7 @@ class App(customtkinter.CTk):
                                         # Registrar el valor del atributo src
                                         logging.info("Valor del atributo src: %s SRC Numero: %s", src, elemento)
                                     else:
-                                        src_values.append('N\A')
+                                        src_values.append('null')
                             else:
                                 logging.info("No se encontró el 'src' en las instancias de las clases.")
                                                             
@@ -615,6 +619,7 @@ class App(customtkinter.CTk):
 
                             # Usar zip para combinar las listas 
                             for elemento, elemento2, src, href  in zip(elementos_con_clase_N1, elementos_con_clase_N2, src_values, href_values):
+                                print("Guardando data")
                                 #Extraemos el texto que se encuentre dentro de las instancias del elemento HTML N1
                                 textoN1 = elemento.get_text()
                                 #Extraemos el texto que se encuentre dentro de las instancias del elemento HTML N2
@@ -622,6 +627,7 @@ class App(customtkinter.CTk):
                                 
                                 #Anadimos la data a una nueva fila de la base de datos
                                 nueva_fila_db = Data_Extraida(Texto_N1=textoN1,Texto_N2=textoN2, Src_imagenes=src, href_productos= href)
+                                print(nueva_fila_db)
                                 session.add(nueva_fila_db)
                                 session.commit()
                                 
@@ -638,10 +644,10 @@ class App(customtkinter.CTk):
                             return
                     except Exception as e:
                         self.Barrra_de_carga.stop()
-                        msg= CTkMessagebox(master=self,title="Advertencia", message=f"Fallo en el proceso de extraccion:\n\n{e}", icon="warning", option_1="Cancelar", option_2="Reintentar")          
+                        CTkMessagebox(master=self,title="Advertencia", message=f"Fallo en el proceso de extraccion:\n\n{e}", icon="warning", option_1="Cancelar", option_2="Reintentar")          
                 else:
                     self.Barrra_de_carga.stop()
-                    msg= CTkMessagebox(master=self,title="Advertencia", message="Fallo en el proceso de extraccion", icon="warning", option_1="Cancelar", option_2="Reintentar")
+                    CTkMessagebox(master=self,title="Advertencia", message="Fallo en el proceso de extraccion", icon="warning", option_1="Cancelar", option_2="Reintentar")
                     return
 
             if data is not None:
@@ -725,7 +731,7 @@ class App(customtkinter.CTk):
         self.Barrra_de_carga_exportacion_data_base.start()
         try:
             # Ruta de la base de datos original
-            ruta_base_de_datos_original = 'Selenium_app/Base_De_Datos_Data.db'
+            ruta_base_de_datos_original = 'Base_De_Datos_Data.db'
 
             # Abre un cuadro de diálogo para seleccionar la ubicación y el nombre del archivo de copia de seguridad
             ruta_copia_de_seguridad = filedialog.asksaveasfilename(defaultextension=".db", filetypes=[("SQLite Database Files", "*.db")])
@@ -749,7 +755,7 @@ class App(customtkinter.CTk):
             Ruta_archivo_log_txt = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt")])
             
             # Abre el archivo de registro
-            with open('Selenium_app/data_extraida.log', 'r') as log_file:
+            with open('data_extraida.log', 'r') as log_file:
                 log_data = log_file.read()
                 
             if Ruta_archivo_log_txt:
@@ -806,7 +812,7 @@ class App(customtkinter.CTk):
             
             #Elinamos el registro de extracion .log
             try:
-                ruta_archivo = 'Selenium_app/data_extraida.log'
+                ruta_archivo = 'data_extraida.log'
                 # Verifica si el archivo existe antes de intentar eliminarlo
                 if os.path.exists(ruta_archivo):
                     os.remove(ruta_archivo)

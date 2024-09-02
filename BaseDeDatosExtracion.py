@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 
-engine = create_engine('sqlite:///Selenium_app/Base_De_Datos_Data.db', echo=True)
+engine = create_engine('sqlite:///Base_De_Datos_Data.db', echo=True)
 Base = declarative_base()
 
 class Data_Extraida(Base):
