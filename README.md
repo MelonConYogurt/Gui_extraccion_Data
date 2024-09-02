@@ -142,6 +142,7 @@ Para más detalles sobre cada parte del código, revisa los comentarios y el có
 
 Asegúrate de ajustar cualquier detalle según la estructura de tu proyecto y los requisitos específicos de la función.
 
-![IMG-20230919-WA0016](https://github.com/user-attachments/assets/e0748baf-c0f9-45e4-9872-aed4f44594d7)
-![IMG-20230919-WA0015](https://github.com/user-attachments/assets/9118fdc8-c113-4a06-a6f8-41e3f44f06f4)
-![IMG-20230919-WA0010](https://github.com/user-attachments/assets/f1150668-8df3-4698-bf90-a43396821fd5)
+![Screenshot 2024-09-02 002852](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4)
+![demo scrapp 3](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845)
+![Demo scrap 2](https://github.com/user-attachments/assets/87ea04f2-e7f8-4558-a09d-00f1fe97ac5d)
+
