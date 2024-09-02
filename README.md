@@ -4,6 +4,14 @@
 
 La función `extracion_de_datos_entry` está diseñada para extraer datos de páginas web mediante solicitudes HTTP y procesar el contenido HTML utilizando `BeautifulSoup`. Los datos extraídos se almacenan en un archivo Excel y se registran en un archivo de log.
 
+<div style="width: 100%; max-width: 800px;">
+    <a href="https://youtu.be/Sy-Kcgu5nG0" target="_blank">
+        <img src="https://img.youtube.com/vi/Sy-Kcgu5nG0/0.jpg" alt="Alt text" style="width: 100%;">
+    </a>
+</div>
+
+
+
 ## Descripción
 
 Esta función realiza las siguientes tareas:
