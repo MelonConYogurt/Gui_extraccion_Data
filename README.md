@@ -1,59 +1,59 @@
+Aquí tienes una versión mejorada del README con más estilo y estructura:
 
+---
 
 # Extracción de Datos Entry
 
-La función `extracion_de_datos_entry` está diseñada para extraer datos de páginas web mediante solicitudes HTTP y procesar el contenido HTML utilizando `BeautifulSoup`. Los datos extraídos se almacenan en un archivo Excel y se registran en un archivo de log.
+![Demo Video](https://github.com/user-attachments/assets/ba6fe74e-4529-447c-803b-e01692153038)
 
-<div style="width: 100%; max-width: 800px;">
-    <a href="https://youtu.be/Sy-Kcgu5nG0" target="_blank">
-        <img src="https://img.youtube.com/vi/Sy-Kcgu5nG0/0.jpg" alt="Alt text" style="width: 100%;">
-    </a>
-</div>
-
-
+La función `extracion_de_datos_entry` es una herramienta robusta para la extracción automatizada de datos desde páginas web. Utiliza solicitudes HTTP y procesa contenido HTML con `BeautifulSoup`, almacenando los datos extraídos en un archivo Excel y registrando el proceso en un log.
 
 ## Descripción
 
-Esta función realiza las siguientes tareas:
+### 1. Configuración Inicial
 
-1. **Configuración Inicial**:
-   - Inicializa listas para almacenar tiempos de respuesta y tamaños de respuesta.
-   - Configura un archivo de log para registrar el proceso de extracción.
-   - Prepara un archivo Excel para almacenar los datos extraídos.
+- **Inicialización de Listas**: Para almacenar tiempos y tamaños de respuesta.
+- **Configuración de Logs**: Registro detallado del proceso de extracción.
+- **Creación de Archivo Excel**: Plantilla preparada para almacenar los datos extraídos.
 
-2. **Extracción de Datos**:
-   - Obtiene URLs y cadenas HTML proporcionadas por el usuario.
-   - Realiza solicitudes HTTP a las URLs y registra tiempos y tamaños de respuesta.
-   - Utiliza `BeautifulSoup` para analizar el HTML y extraer clases y datos específicos.
-   - Almacena los datos extraídos en el archivo Excel y en la base de datos.
+### 2. Extracción de Datos
 
-3. **Manejo de Errores y Finalización**:
-   - Maneja errores durante el proceso de extracción.
-   - Exporta el archivo Excel a una ubicación elegida por el usuario.
-   - Detiene la barra de carga y cierra el registro de logs.
+- **Obtención de URLs y HTML**: Recibe URLs y cadenas HTML del usuario.
+- **Solicitudes HTTP**: Realiza solicitudes a las URLs y registra tiempos/tamaños de respuesta.
+- **Análisis y Extracción**: Usa `BeautifulSoup` para analizar y extraer datos específicos del HTML.
+- **Almacenamiento de Datos**: Guarda los datos en el archivo Excel y la base de datos.
+
+### 3. Manejo de Errores y Finalización
+
+- **Gestión de Errores**: Captura y maneja errores durante el proceso.
+- **Exportación de Datos**: Permite al usuario guardar el archivo Excel en la ubicación deseada.
+- **Finalización**: Detiene la barra de carga y cierra el archivo de logs.
 
 ## Requisitos
 
-- **Librerías**:
-  - `requests`
-  - `beautifulsoup4`
-  - `openpyxl`
-  - `logging`
-  - `re`
-  - `tkinter`
+Para utilizar esta función, asegúrate de tener las siguientes librerías instaladas:
+
+```bash
+pip install requests beautifulsoup4 openpyxl logging re tkinter
+```
 
 ## Uso
 
-1. **Preparación**:
-   - Asegúrate de que los datos requeridos (URLs, cadenas HTML) estén disponibles.
-   - Configura las cadenas HTML de los elementos que se deben buscar.
+### 1. Preparación
 
-2. **Ejecutar la Función**:
-   - La función se debe invocar como un método de una clase que tenga las propiedades necesarias (`confirmar_url_pagina`, `elementos_pagina_html_N1`, etc.).
-   - La barra de carga se iniciará antes del ciclo de extracción y se detendrá al finalizar el proceso.
+- **Datos Requeridos**: Asegúrate de tener disponibles las URLs y cadenas HTML necesarias.
+- **Configuración**: Define las cadenas HTML para los elementos que deseas buscar.
 
-3. **Exportación de Datos**:
-   - Al finalizar, se abrirá un diálogo para guardar el archivo Excel en la ubicación deseada.
+### 2. Ejecución
+
+- **Invocación**: Ejecuta la función como método de una clase que contenga las propiedades necesarias (`confirmar_url_pagina`, `elementos_pagina_html_N1`, etc.).
+- **Barra de Carga**: La barra se iniciará automáticamente al comenzar la extracción y se detendrá al finalizar.
+
+### 3. Exportación
+
+- **Guardar Archivo**: Al concluir, el sistema abrirá un diálogo para guardar el archivo Excel en la ubicación preferida por el usuario.
+
+## Ejemplo de Código
 
 ## Ejemplo de Código
 
@@ -140,21 +140,20 @@ def extracion_de_datos_entry(self):
         logging.shutdown()
 ```
 
-## Notas
+## Notas Adicionales
 
-- Asegúrate de tener las librerías requeridas instaladas y configuradas.
-- La función depende de las configuraciones de entrada específicas, como las cadenas HTML y las URLs proporcionadas por el usuario.
+- **Instalación**: Verifica que todas las librerías requeridas estén instaladas y configuradas correctamente.
+- **Entradas Específicas**: La función depende de configuraciones de entrada como cadenas HTML y URLs proporcionadas por el usuario.
+- **Personalización**: Ajusta el código según la estructura de tu proyecto y las necesidades específicas.
 
-Para más detalles sobre cada parte del código, revisa los comentarios y el código fuente en la función.
+## Capturas de Pantalla
 
-
-Asegúrate de ajustar cualquier detalle según la estructura de tu proyecto y los requisitos específicos de la función.
-
-![Screenshot 2024-09-02 002852](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4)
-![demo scrapp 3](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845)
-![Demo scrap 2](https://github.com/user-attachments/assets/87ea04f2-e7f8-4558-a09d-00f1fe97ac5d)
-![Screenshot 2024-09-02 003918](https://github.com/user-attachments/assets/02fa4548-eb04-445e-b72f-ae9c87165e16)
-![Screenshot 2024-09-02 010927](https://github.com/user-attachments/assets/5ca9d924-0959-415b-8efd-59bb041e3405)
-![Screenshot 2024-09-02 010940](https://github.com/user-attachments/assets/ba6fe74e-4529-447c-803b-e01692153038)
+| Ejemplo 1 | Ejemplo 2 |
+|-----------|-----------|
+| ![Screenshot 1](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4) | ![Screenshot 2](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845) |
+| ![Screenshot 3](https://github.com/user-attachments/assets/87ea04f2-e7f8-4558-a09d-00f1fe97ac5d) | ![Screenshot 4](https://github.com/user-attachments/assets/02fa4548-eb04-445e-b72f-ae9c87165e16) |
 
 
+---
+
+Este README mejorado no solo hace que la información sea más accesible y atractiva, sino que también proporciona una guía clara y concisa para cualquier usuario que quiera utilizar la función `extracion_de_datos_entry`.
