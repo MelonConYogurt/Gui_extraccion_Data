@@ -7,8 +7,8 @@ import shutil
 import re
 import os
 from tkinter import ttk
-from CTkToolTip import *
-from CTkRangeSlider import *
+from ctk_tooltip import *
+from ctk_rangeslider import *
 from datetime import datetime
 from openpyxl import Workbook
 from bs4 import BeautifulSoup
