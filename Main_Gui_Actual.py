@@ -254,132 +254,129 @@ class App(customtkinter.CTk):
         
            
         #Entry y botones Y demas widgets dentro de los frames principales    
-        self.confirmar_url_pagina = customtkinter.CTkEntry(self.frame_medio_bajo_derecha
-                                                           ,width=900, placeholder_text=" Pagina web ")
+        self.confirmar_url_pagina = customtkinter.CTkEntry(self.frame_medio_bajo_derecha,
+                                                   width=900, placeholder_text="Web Page")
         self.confirmar_url_pagina.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.obtener_url_usuario = customtkinter.CTkButton(self.frame_medio_bajo_derecha, text ="Verificar", width=90,
-                                                           command= lambda: self.url_pagina_extraccion())
-        self.obtener_url_usuario.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.verificasion_switch_url= customtkinter.CTkSwitch(self.frame_medio_bajo_derecha, width=90, text="No verificado", onvalue="on",
-                                                              offvalue="off", progress_color="#1f6aa5", state="disabled")
-        self.verificasion_switch_url.grid(row=0, column=2, padx=10, pady=10)
-        
-        self.elementos_pagina_html_N1 = customtkinter.CTkEntry(self.frame_bajo_derecha
-                                                           ,width=900, placeholder_text="Primer elemento <HTML>")
-        self.elementos_pagina_html_N1.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.Verificar_N1 = customtkinter.CTkButton(self.frame_bajo_derecha, text ="Verificar", width=90,
-                                                            command= lambda: self.elementos_html_N1() )
-        self.Verificar_N1.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.verificasion_switch_N1= customtkinter.CTkSwitch(self.frame_bajo_derecha, width=90, text="No verificado", onvalue="on", offvalue="off",
-                                                             progress_color="#1f6aa5", state="disabled")
-        self.verificasion_switch_N1.grid(row=0, column=2, padx=10, pady=10)
-        
-        self.elementos_pagina_html_N2 = customtkinter.CTkEntry(self.frame_bajo_derecha_N2
-                                                           ,width=900, placeholder_text="Segundo elemento <HTML>")
-        self.elementos_pagina_html_N2.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.Verificar_N2 = customtkinter.CTkButton(self.frame_bajo_derecha_N2, text ="Verificar", width=90, 
-                                                            command= lambda: self.elementos_html_N2())
-        self.Verificar_N2.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.verificasion_switch_N2= customtkinter.CTkSwitch(self.frame_bajo_derecha_N2, width=90, text="No verificado", onvalue="on", offvalue="off",
-                                                             progress_color="#1f6aa5", state="disabled")
-        self.verificasion_switch_N2.grid(row=0, column=2, padx=10, pady=10)
-            
-        self.Url_pagina_producto = customtkinter.CTkEntry(self.frame_bajo_derecha_NP_derecha
-                                                           ,width=900, placeholder_text="Tercer elemento <HREF> productos")
-        self.Url_pagina_producto.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.Verificar_url_producto = customtkinter.CTkButton(self.frame_bajo_derecha_NP_derecha, text ="Verificar", width=90, 
-                                                            command= lambda: self.elementos_html_N2())
-        self.Verificar_url_producto.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.Verificar_url_producto_switch= customtkinter.CTkSwitch(self.frame_bajo_derecha_NP_derecha, width=90, text="No verificado", onvalue="on", offvalue="off",
-                                                             progress_color="#1f6aa5", state="disabled")
-        self.Verificar_url_producto_switch.grid(row=0, column=2, padx=10, pady=10)  
-        
-        self.elementos_pagina_html_N3 = customtkinter.CTkEntry(self.frame_bajo_derecha_N3
-                                                           ,width=900, placeholder_text="Elemento <HTML> para imagenes")
-        self.elementos_pagina_html_N3.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.Verificar_N3 = customtkinter.CTkButton(self.frame_bajo_derecha_N3, text ="Verificar", width=90,
-                                                            command= lambda: self.imagenes_elementos_html())
-        self.Verificar_N3.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.verificasion_switch_N3= customtkinter.CTkSwitch(self.frame_bajo_derecha_N3, width=90, text="No verificado", onvalue="on", offvalue="off",
-                                                             progress_color="#1f6aa5", state="disabled")
-        self.verificasion_switch_N3.grid(row=0, column=2, padx=10, pady=10)
-          
-        self.elementos_pagina_html_N4 = customtkinter.CTkEntry(self.frame_bajo_derecha_N4
-                                                           ,width=900, placeholder_text="Elemento <HTML> Boton 'Siguiente'")
-        self.elementos_pagina_html_N4.grid(row=0, column=0, padx=10, pady=10)
-        
-        self.Verificar_N4 = customtkinter.CTkButton(self.frame_bajo_derecha_N4, text ="Verificar", width=90, 
-                                                            command= lambda:self.elemento_boton_siguiente())
-        self.Verificar_N4.grid(row=0, column=1, padx=10, pady=10)
-        
-        self.verificasion_switch_N4= customtkinter.CTkSwitch(self.frame_bajo_derecha_N4, width=90, text="No verificado", onvalue="on", offvalue="off",
-                                                             progress_color="#1f6aa5", state="disabled")
-        self.verificasion_switch_N4.grid(row=0, column=2, padx=10, pady=10) 
-        
-        def show_value(value):
-            valor_1= int(value[0])
-            valor_2= int(value[1])
-            self.tooltip_1.configure(message=f"Desde: {valor_1}, Hasta: {valor_2}")  
-              
-        self.Rango_slider_paginas = CTkRangeSlider(self.frame_bajo_derecha_N5, from_=1, to=200, command=show_value)
-        self.Rango_slider_paginas.pack(fill="both", padx=15, pady=(15,10))
-        
-        self.tooltip_1 = CTkToolTip(self.Rango_slider_paginas, message="Desde: 1, Hasta: 200")   
-               
-        self.Boton_extraer_Data = customtkinter.CTkButton(self.frame_bajo_N1_derecha, text ="Iniciar extracción", 
-                                                            command= lambda: self.Hilo_extraccion_de_data(), width=135)
-        self.Boton_extraer_Data.pack(side="right", padx=(10,30), pady=10)
-        
-        self.Barrra_de_carga = customtkinter.CTkProgressBar(self.frame_bajo_N1_derecha, width=1000, orientation="horizontal",mode="indeterminate")
-        self.Barrra_de_carga.pack(side="left", padx=(30,10), pady=10)
-          
-        self.Boton_exportar_data = customtkinter.CTkButton(self.frame_bajo_N2_derecha, text ="Exportar registro", 
-                                                           command= lambda: self.exportar_registro(), width=135)
-        self.Boton_exportar_data.pack(side="right", padx=(10,30), pady=10)
-    
-        self.Barrra_de_carga_exportacion = customtkinter.CTkProgressBar(self.frame_bajo_N2_derecha, width=1000,orientation="horizontal", mode="indeterminate")
-        self.Barrra_de_carga_exportacion.pack(side="left", padx=(30,10), pady=10)
-      
-        self.Boton_exportar_dataBase = customtkinter.CTkButton(self.frame_funciones_bajo_derecha, text ="Exportar data base", 
-                                                           command= lambda: self.exportar_data_base(), width=135)
-        self.Boton_exportar_dataBase.pack(side="right", padx=(10,30), pady=10)
-        
-        self.Barrra_de_carga_exportacion_data_base = customtkinter.CTkProgressBar(self.frame_funciones_bajo_derecha, width=1000,orientation="horizontal",mode="indeterminate")
-        self.Barrra_de_carga_exportacion_data_base.pack(side="left", padx=(30,10), pady=10)
-               
-        self.Boton_limpiar_data = customtkinter.CTkButton(self.frame_funciones_bajo_N2_derecha, text ="Limpiar registros", 
-                                                           command= lambda: self.limpiar_data_todo(), width=135)
-        self.Boton_limpiar_data.pack(side="right", padx=(10,30), pady=10)
-        
-        self.Barrra_de_carga_limpiar_data = customtkinter.CTkProgressBar(self.frame_funciones_bajo_N2_derecha, width=1000,orientation="horizontal",mode="indeterminate")
-        self.Barrra_de_carga_limpiar_data.pack(side="left", padx=(30,10), pady=10)
-        
-        self.Boton_descargar_resumen = customtkinter.CTkButton(self.frame_resumen_derecha, text ="Mostrar resumen", 
-                                                            command= lambda: self.resumen_extracion(), width=135)
-        self.Boton_descargar_resumen.pack(side="right", padx=(10,30), pady=10)
-        
-        self.Barrra_de_carga_resumen = customtkinter.CTkProgressBar(self.frame_resumen_derecha, width=1000,orientation="horizontal",mode="indeterminate")
-        self.Barrra_de_carga_resumen.pack(side="left", padx=(30,10), pady=10)
-                       
-        self.Boton_descargar_imagenes = customtkinter.CTkButton(self.frame_imagenes_derecha, text ="Descargar imagenes", 
-                                                            command= lambda: self.Hilo_descarga_de_imagenes(), width=135)
-        self.Boton_descargar_imagenes.pack(side="right", padx=(10,30), pady=10)
-        
-        self.Barrra_de_carga_funciones = customtkinter.CTkProgressBar(self.frame_imagenes_derecha, width=1000,orientation="horizontal",mode="indeterminate")
-        self.Barrra_de_carga_funciones.pack(side="left", padx=(30,10), pady=10)
 
-        
-        
+        self.obtener_url_usuario = customtkinter.CTkButton(self.frame_medio_bajo_derecha, text="Verify", width=90,
+                                                        command=lambda: self.url_pagina_extraccion())
+        self.obtener_url_usuario.grid(row=0, column=1, padx=10, pady=10)
+
+        self.verificasion_switch_url = customtkinter.CTkSwitch(self.frame_medio_bajo_derecha, width=90, text="Not Verified",
+                                                                onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.verificasion_switch_url.grid(row=0, column=2, padx=10, pady=10)
+
+        self.elementos_pagina_html_N1 = customtkinter.CTkEntry(self.frame_bajo_derecha,
+                                                            width=900, placeholder_text="First <HTML> Element")
+        self.elementos_pagina_html_N1.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Verificar_N1 = customtkinter.CTkButton(self.frame_bajo_derecha, text="Verify", width=90,
+                                                    command=lambda: self.elementos_html_N1())
+        self.Verificar_N1.grid(row=0, column=1, padx=10, pady=10)
+
+        self.verificasion_switch_N1 = customtkinter.CTkSwitch(self.frame_bajo_derecha, width=90, text="Not Verified",
+                                                            onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.verificasion_switch_N1.grid(row=0, column=2, padx=10, pady=10)
+
+        self.elementos_pagina_html_N2 = customtkinter.CTkEntry(self.frame_bajo_derecha_N2,
+                                                            width=900, placeholder_text="Second <HTML> Element")
+        self.elementos_pagina_html_N2.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Verificar_N2 = customtkinter.CTkButton(self.frame_bajo_derecha_N2, text="Verify", width=90,
+                                                    command=lambda: self.elementos_html_N2())
+        self.Verificar_N2.grid(row=0, column=1, padx=10, pady=10)
+
+        self.verificasion_switch_N2 = customtkinter.CTkSwitch(self.frame_bajo_derecha_N2, width=90, text="Not Verified",
+                                                            onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.verificasion_switch_N2.grid(row=0, column=2, padx=10, pady=10)
+
+        self.Url_pagina_producto = customtkinter.CTkEntry(self.frame_bajo_derecha_NP_derecha,
+                                                        width=900, placeholder_text="Third <HREF> Element for Products")
+        self.Url_pagina_producto.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Verificar_url_producto = customtkinter.CTkButton(self.frame_bajo_derecha_NP_derecha, text="Verify", width=90,
+                                                            command=lambda: self.elementos_html_N2())
+        self.Verificar_url_producto.grid(row=0, column=1, padx=10, pady=10)
+
+        self.Verificar_url_producto_switch = customtkinter.CTkSwitch(self.frame_bajo_derecha_NP_derecha, width=90, text="Not Verified",
+                                                                    onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.Verificar_url_producto_switch.grid(row=0, column=2, padx=10, pady=10)
+
+        self.elementos_pagina_html_N3 = customtkinter.CTkEntry(self.frame_bajo_derecha_N3,
+                                                            width=900, placeholder_text="<HTML> Element for Images")
+        self.elementos_pagina_html_N3.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Verificar_N3 = customtkinter.CTkButton(self.frame_bajo_derecha_N3, text="Verify", width=90,
+                                                    command=lambda: self.imagenes_elementos_html())
+        self.Verificar_N3.grid(row=0, column=1, padx=10, pady=10)
+
+        self.verificasion_switch_N3 = customtkinter.CTkSwitch(self.frame_bajo_derecha_N3, width=90, text="Not Verified",
+                                                            onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.verificasion_switch_N3.grid(row=0, column=2, padx=10, pady=10)
+
+        self.elementos_pagina_html_N4 = customtkinter.CTkEntry(self.frame_bajo_derecha_N4,
+                                                            width=900, placeholder_text="<HTML> Element for 'Next' Button")
+        self.elementos_pagina_html_N4.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Verificar_N4 = customtkinter.CTkButton(self.frame_bajo_derecha_N4, text="Verify", width=90,
+                                                    command=lambda: self.elemento_boton_siguiente())
+        self.Verificar_N4.grid(row=0, column=1, padx=10, pady=10)
+
+        self.verificasion_switch_N4 = customtkinter.CTkSwitch(self.frame_bajo_derecha_N4, width=90, text="Not Verified",
+                                                            onvalue="on", offvalue="off", progress_color="#1f6aa5", state="disabled")
+        self.verificasion_switch_N4.grid(row=0, column=2, padx=10, pady=10)
+
+        def show_value(value):
+            valor_1 = int(value[0])
+            valor_2 = int(value[1])
+            self.tooltip_1.configure(message=f"From: {valor_1}, To: {valor_2}")
+
+        self.Rango_slider_paginas = CTkRangeSlider(self.frame_bajo_derecha_N5, from_=1, to=200, command=show_value)
+        self.Rango_slider_paginas.pack(fill="both", padx=15, pady=(15, 10))
+
+        self.tooltip_1 = CTkToolTip(self.Rango_slider_paginas, message="From: 1, To: 200")
+
+        self.Boton_extraer_Data = customtkinter.CTkButton(self.frame_bajo_N1_derecha, text="Start Extraction",
+                                                        command=lambda: self.Hilo_extraccion_de_data(), width=135)
+        self.Boton_extraer_Data.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga = customtkinter.CTkProgressBar(self.frame_bajo_N1_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga.pack(side="left", padx=(30, 10), pady=10)
+
+        self.Boton_exportar_data = customtkinter.CTkButton(self.frame_bajo_N2_derecha, text="Export Log",
+                                                        command=lambda: self.exportar_registro(), width=135)
+        self.Boton_exportar_data.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga_exportacion = customtkinter.CTkProgressBar(self.frame_bajo_N2_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_exportacion.pack(side="left", padx=(30, 10), pady=10)
+
+        self.Boton_exportar_dataBase = customtkinter.CTkButton(self.frame_funciones_bajo_derecha, text="Export Database",
+                                                            command=lambda: self.exportar_data_base(), width=135)
+        self.Boton_exportar_dataBase.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga_exportacion_data_base = customtkinter.CTkProgressBar(self.frame_funciones_bajo_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_exportacion_data_base.pack(side="left", padx=(30, 10), pady=10)
+
+        self.Boton_limpiar_data = customtkinter.CTkButton(self.frame_funciones_bajo_N2_derecha, text="Clear Logs",
+                                                        command=lambda: self.limpiar_data_todo(), width=135)
+        self.Boton_limpiar_data.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga_limpiar_data = customtkinter.CTkProgressBar(self.frame_funciones_bajo_N2_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_limpiar_data.pack(side="left", padx=(30, 10), pady=10)
+
+        self.Boton_descargar_resumen = customtkinter.CTkButton(self.frame_resumen_derecha, text="Show Summary",
+                                                            command=lambda: self.resumen_extracion(), width=135)
+        self.Boton_descargar_resumen.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga_resumen = customtkinter.CTkProgressBar(self.frame_resumen_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_resumen.pack(side="left", padx=(30, 10), pady=10)
+
+        self.Boton_descargar_imagenes = customtkinter.CTkButton(self.frame_imagenes_derecha, text="Download Images",
+                                                                command=lambda: self.Hilo_descarga_de_imagenes(), width=135)
+        self.Boton_descargar_imagenes.pack(side="right", padx=(10, 30), pady=10)
+
+        self.Barrra_de_carga_funciones = customtkinter.CTkProgressBar(self.frame_imagenes_derecha, width=1000, orientation="horizontal", mode="indeterminate")
+        self.Barrra_de_carga_funciones.pack(side="left", padx=(30, 10), pady=10)
         
     def extracion_de_datos_entry(self):            
         # Listas para almacenar el tiempo y el tamaño de respuesta de cada solicitud de red
@@ -678,13 +675,12 @@ class App(customtkinter.CTk):
             self.Barrra_de_carga.stop()
             #Cerramos el log, para liberar data
             logging.shutdown()
-     
             
     def mostar_graficos(self):
         try:
             # Tamaño de la figura en píxeles
-            fig_width_pixels = 1010
-            fig_height_pixels = 300
+            fig_width_pixels = 1600
+            fig_height_pixels = 400
                               
             self.frame_grafico_N1 = customtkinter.CTkFrame(self.frame_base, fg_color="#ffffff")
             self.frame_grafico_N1.grid(row=25, column=0, columnspan=2,padx=5, pady=5, sticky="nsew")
@@ -724,9 +720,8 @@ class App(customtkinter.CTk):
             else:
                 return
         except Exception as e:
-            CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error: {e}", icon="cancel")      
-    
-                      
+            CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error: {e}", icon="cancel")
+
     def exportar_data_base(self):
         self.Barrra_de_carga_exportacion_data_base.start()
         try:
@@ -746,7 +741,6 @@ class App(customtkinter.CTk):
             CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error: {e}", icon="cancel") 
         #Se detiene la barra de carga al final del try    
         self.Barrra_de_carga_exportacion_data_base.stop()        
-
 
     def exportar_registro(self):
         self.Barrra_de_carga_exportacion.start()
@@ -769,7 +763,6 @@ class App(customtkinter.CTk):
             CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error: {e}", icon="cancel") 
         #Detenemos la barra de carga
         self.Barrra_de_carga_exportacion.stop()
-
     
     def limpiar_data_todo(self):
         self.Barrra_de_carga_limpiar_data.start()
@@ -865,7 +858,6 @@ class App(customtkinter.CTk):
         CTkMessagebox(master=self,title="info", message="Todos los campos y registros se han limpiado correctamen")
         self.Barrra_de_carga_limpiar_data.stop()     
     
-       
     def resumen_extracion(self):
         if session.query(func.count(Data_Extraida.Id)).scalar() > 0:
             try: 
@@ -945,18 +937,31 @@ class App(customtkinter.CTk):
         if session.query(func.count(Data_Extraida.Id)).scalar() > 0:
             try:
                 self.frame_resumen_tabla = customtkinter.CTkFrame(self.frame_base, fg_color="#ffffff")
-                self.frame_resumen_tabla.grid(row=24, column=0, columnspan=2,padx=5, pady=5, sticky="nsew") 
-                                            
+                self.frame_resumen_tabla.grid(row=24, column=0, columnspan=2, padx=5, pady=5, sticky="nsew") 
+
                 # Obtener los datos de la base de datos SQLAlchemy
                 datos = session.query(Data_Extraida).all()
+
                 # Crear un Treeview para mostrar los datos en forma de tabla
                 treeview = ttk.Treeview(self.frame_resumen_tabla, columns=("Id", "Texto_N1", "Texto_N2", "Src_imagenes", "href_productos"), show="headings")
+
+                # Configurar los encabezados de las columnas
                 treeview.heading("Id", text="ID")
                 treeview.heading("Texto_N1", text="Texto N1")
                 treeview.heading("Texto_N2", text="Texto N2")
-                treeview.heading("Src_imagenes", text="URL imagenes")
+                treeview.heading("Src_imagenes", text="URL imágenes")
                 treeview.heading("href_productos", text="URL producto")
-                treeview.pack(padx=0, pady=20)
+
+                # Configurar el ancho de las columnas
+                treeview.column("Id", width=50, anchor="center")
+                treeview.column("Texto_N1", width=150, anchor="w")
+                treeview.column("Texto_N2", width=150, anchor="w")
+                treeview.column("Src_imagenes", width=200, anchor="w")
+                treeview.column("href_productos", width=200, anchor="w")
+
+                # Empacar el Treeview y ajustar su tamaño
+                treeview.pack(fill="both", expand=True, padx=10, pady=20)
+
                 
                 # Limpiar cualquier dato previo en el Treeview
                 for fila in treeview.get_children():
@@ -972,7 +977,6 @@ class App(customtkinter.CTk):
             return
         #Mostramos los graficos
         self.mostar_graficos()
-        
     
     def Hilo_extraccion_de_data(self):
         # Iniciar un hilo para ejecutar la extracción de datos
@@ -984,7 +988,6 @@ class App(customtkinter.CTk):
         descarga_thread = threading.Thread(target=self.descargar_imagenes)
         descarga_thread.start()       
         
-         
     def descargar_imagenes(self):
         self.Barrra_de_carga_funciones.start()
         #Verificamos que la base de datos con imagenes no este vacia
@@ -1022,7 +1025,6 @@ class App(customtkinter.CTk):
             self.Barrra_de_carga_funciones.stop() 
             return                
                             
-         
     def url_pagina_extraccion(self):
         url_sin_revisar = self.confirmar_url_pagina.get()
         if url_sin_revisar != "":
@@ -1068,7 +1070,6 @@ class App(customtkinter.CTk):
         else:
              CTkMessagebox(master=self,title="Error", message="Ha ocurrido un error", icon="cancel")     
         
-      
     def elementos_html_N1(self):
         Elemento_Html= self.elementos_pagina_html_N1.get()
         Elemento_Html_verificado = Elemento_Html
@@ -1095,7 +1096,6 @@ class App(customtkinter.CTk):
                 CTkMessagebox(master=self,title="Error", message="Ha ocurrido un error", icon="cancel") 
         except Exception as e:
             CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error:\n\n{e}", icon="cancel") 
-            
             
     def elementos_html_N2(self):
         Elemento_Html= self.elementos_pagina_html_N2.get()
@@ -1124,7 +1124,6 @@ class App(customtkinter.CTk):
         except Exception as e:
             CTkMessagebox(master=self,title="Error", message=f"Ha ocurrido un error:\n\n{e}", icon="cancel")                   
     
-
     def imagenes_elementos_html(self):
         Elemento_html_img = self.elementos_pagina_html_N3.get()
         if Elemento_html_img !="" :
@@ -1153,7 +1152,6 @@ class App(customtkinter.CTk):
         else:
             CTkMessagebox(master=self,title="Error", message="Ha ocurrido un error", icon="cancel") 
         
-            
     def elemento_boton_siguiente(self):
         Elemento_boton = self.elementos_pagina_html_N4.get()
         if Elemento_boton:
