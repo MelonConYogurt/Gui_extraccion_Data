@@ -148,7 +148,7 @@ def extracion_de_datos_entry(self):
 
 ## Capturas de Pantalla
 
-| Ejemplo 1 | Ejemplo 2 |
+| Screenshot | Screenshot |
 |-----------|-----------|
 | ![Screenshot 1](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4) | ![Screenshot 2](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845) |
 | ![Screenshot 3](https://github.com/user-attachments/assets/87ea04f2-e7f8-4558-a09d-00f1fe97ac5d) | ![Screenshot 4](https://github.com/user-attachments/assets/02fa4548-eb04-445e-b72f-ae9c87165e16) |
@@ -159,7 +159,7 @@ def extracion_de_datos_entry(self):
 
 
 
-| Ejemplo 1 | Ejemplo 2 | Ejemplo 3 | Ejemplo 4 |
+| Exporte Excel | Gui main | Visualizacion de los datos | Metricas |
 |-----------|-----------|-----------|-----------|
 | ![Screenshot 1](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4) | ![Screenshot 2](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845) | ![Screenshot 3](https://github.com/user-attachments/assets/baf882aa-eaad-4d5d-b42e-8478578f2c18) | ![Screenshot 4](https://github.com/user-attachments/assets/fb90903e-9d1d-4bcd-b377-6f42ecca9248) |
 
