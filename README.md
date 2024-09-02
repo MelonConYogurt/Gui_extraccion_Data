@@ -145,4 +145,5 @@ Asegúrate de ajustar cualquier detalle según la estructura de tu proyecto y lo
 ![Screenshot 2024-09-02 002852](https://github.com/user-attachments/assets/3f8a4272-de68-47ff-9851-28e921369dc4)
 ![demo scrapp 3](https://github.com/user-attachments/assets/68b0ce51-fa96-4562-8d8e-b6c373da7845)
 ![Demo scrap 2](https://github.com/user-attachments/assets/87ea04f2-e7f8-4558-a09d-00f1fe97ac5d)
+![Screenshot 2024-09-02 003918](https://github.com/user-attachments/assets/02fa4548-eb04-445e-b72f-ae9c87165e16)
 
