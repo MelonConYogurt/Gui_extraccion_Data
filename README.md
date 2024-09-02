@@ -166,5 +166,3 @@ Esta tabla ahora muestra todos los screenshots juntos para facilitar la visualiz
 
 
 ---
-
-Este README mejorado no solo hace que la información sea más accesible y atractiva, sino que también proporciona una guía clara y concisa para cualquier usuario que quiera utilizar la función `extracion_de_datos_entry`.
